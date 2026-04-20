@@ -2,13 +2,13 @@
 
 This is a python based simulation of a single-cycle processor datapath. It models how a simplified CPU executes instructions by breaking execution into key stages: fetch, decode, execute, memory, and write back. The design is modular with each hardware component implemented into a seperate file.
 
-##Supported Instructions
+## Supported Instructions
 The processor supports a small custom instruction set focused on bitwise AND and bitwise OR. It has optional input inversion(NOT functionality via control signals). These instructions operate on 8 registers.
 
-##Architecture Components
+## Architecture Components
 Each datapath component is implemented in its own file.
 
-#Register File (Register.py)
+# Register File (Register.py)
 -Stores 8 registers (t0-t7)
 -Supports:
   -Register reads (2 inputs)
@@ -16,14 +16,14 @@ Each datapath component is implemented in its own file.
   -Initial loading of inputs
   -Dumping register state for debugging and snapshots
   
-#ALU (InstructionExecute.py)
+# ALU (InstructionExecute.py)
 -Performs arithmetic/logic operations:
   -AND
   -OR
 -Supports conditional input inversion
 -Outputs result and zero flag
 
-#Control Unit (ControlUnit.py)
+# Control Unit (ControlUnit.py)
 -Decodes 32-bit instruction format
 -Extracts:
   -Opcode
@@ -34,16 +34,16 @@ Each datapath component is implemented in its own file.
   -register write enable
   -input inversion signals
 
-#Instruction Memory (InstructionMemory.py)
+# Instruction Memory (InstructionMemory.py)
 -Stores program instructions as encoded 32 bits
 -Provides fetch using program counter
 -Includes human readable mnemonics for debugging
 
-#Multiplexer (mux.py)
+# Multiplexer (mux.py)
 -Implemets a 2-input multiplexer, selects between 2 data inputs based on a control signal
 -Represents datapath selection 
 
-#Processor (processor.py)
+# Processor (processor.py)
 -Main execution engine
 -Implements a full single-cyle flow:
   1. Fetch
@@ -54,10 +54,10 @@ Each datapath component is implemented in its own file.
   6. Writeback
 -Prints cycle by cycle trace and register state updates
 
-##Program
+## Program
 The program computes: Y = (A & B) | (~C & D)
 
-##How to Run
+## How to Run
 python processor.py A B C D
 where A-D can be 0 or 1
 if no arguments are provided than default values are used
